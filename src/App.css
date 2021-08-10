@@ -1,0 +1,124 @@
+.App {
+  text-align: center;
+}
+
+.Banner {
+  height: 30px;
+  max-width: 100%;
+  background-color: rgb(119, 119, 119);
+  text-align: left;
+  color: white;
+  font-weight: bold;
+  font-size: x-large;
+  padding: 30px;
+}
+
+
+.Container {
+  margin: 50px;
+}
+
+
+.TopSection {
+  display: flex;
+  flex-direction: row;
+  margin-top: 50px;
+}
+
+
+.AddItem {
+  order: 0;
+  width: 50%;
+  color: rgb(155, 155, 155);
+  padding-right: 35px;
+  border-right: 0.5px solid rgb(214, 214, 214);
+}
+.FormUnit {
+  margin-bottom: 10px;
+}
+.FormUnit .label {
+  width: 100%;
+  text-align: left;
+}
+.FormUnit input {
+  border: 3px solid rgb(214, 214, 214);
+  border-radius: 3px;
+  padding: 8px 5px;
+  width: calc(100% - 16px);
+}
+.FormUnit input:focus {
+  outline: none;
+}
+
+.Gross {
+  display: inline-block;
+  width: 200px;
+}
+.Buttons {
+  display: inline-block;
+}
+.Buttons div {
+  display: inline;
+  width: calc(100% - 200px);
+  margin-left: 25px;
+}
+.Buttons input {
+  outline: none;
+  background: rgb(175, 175, 175);
+  color: white;
+  border-radius: 5px;
+  border: none;
+  padding: 8px 15px;
+}
+.Buttons input:hover {
+  cursor: pointer;
+}
+
+
+
+.Overview {
+  order: 1;
+  width: 50%;
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  margin-left: 35px;
+  background-color: rgb(235, 235, 235);
+  padding-left: 25px;
+}
+.OverviewMag {
+  padding-right: 150px;
+}
+.Metrics > div, .OverviewMag > div {
+  padding: 20px 10px;
+  height: 20px;
+}
+.Metrics > div {
+  text-align: left;
+}
+.OverviewMag > div {
+  text-align: right;
+}
+
+
+.Purchases {
+  width: 100%;
+  margin-top: 50px;
+}
+.Purchase, .PurchaseHeaders {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr; 
+}
+.Purchase > div, .PurchaseHeaders > div {
+  text-align: right;
+  padding: 20px 10px;
+  border-bottom: 0.5px solid rgb(214, 214, 214);
+}
+.Purchase > div {
+  border-right: 0.5px solid rgb(214, 214, 214);
+}
+.Purchase > div:nth-child(1) {
+  border-left: 0.5px solid rgb(214, 214, 214);
+}
+.Purchase > div:nth-child(1), .PurchaseHeaders > div:nth-child(1) {
+  text-align: left;
+}
