@@ -18,18 +18,18 @@ describe('getOverview function', () => {
     purchases_sample = [
       {
         name: 'A',
-        net: '100.5',
-        tax: 't1'
+        net: '100',
+        tax: '15'
       },
       {
         name: 'B',
-        net: '20.5',
-        tax: 't2'
+        net: '23',
+        tax: '5'
       },
       {
         name: 'C',
-        net: '30.5',
-        tax: 't3'
+        net: '35',
+        tax: '5'
       }
     ]
   });
@@ -37,8 +37,8 @@ describe('getOverview function', () => {
   test('overview is calculated correctly for non-empty purchase list', () => {
     expect(getOverview(purchases_sample)).toStrictEqual(
       {
-        sum: "151.50",
-        avg: "50.50",
+        sum: "183.00",
+        avg: "61.00",
         num: 3
       }
     );

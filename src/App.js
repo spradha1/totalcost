@@ -15,7 +15,7 @@ function App() {
   });
   const [name, setName] = useState("");
   const [cost, setCost] = useState("");
-  const [tax, setTax] = useState(0);
+  const [taxrate, setTaxrate] = useState(0);
   const [gross, setGross] = useState(0.0);
 
 
@@ -30,12 +30,12 @@ function App() {
   useEffect (() => {
     const num = parseFloat(cost);
     if ( !isNaN(num) ) {
-      setGross(num*tax/100);
+      setGross(num*taxrate/100);
     }
     else {
       setGross(0.0);
     }
-  }, [cost, tax])
+  }, [cost, taxrate])
 
 
 
@@ -49,15 +49,15 @@ function App() {
     setCost(e.target.value);
   }
 
-  function handleTaxChange (e) {
-    setTax(e.target.value);
+  function handleTaxrateChange (e) {
+    setTaxrate(e.target.value);
   }
 
   // handle add/reset button
   function handleSubmit (e, aim) {
     e.preventDefault();
     if (aim === "Add") {
-      if (name.trim().length && cost.trim().length && !isNaN(parseFloat(cost)) && !isNaN(parseFloat(tax)) ) {
+      if (name.trim().length && cost.trim().length && !isNaN(parseFloat(cost)) && !isNaN(parseFloat(taxrate)) ) {
         addPurchase(name, cost);
       }
       else {
@@ -67,6 +67,7 @@ function App() {
     document.getElementById("AddItemForm").reset();
     setName("");
     setCost("");
+    setTaxrate(0);
   }
 
 
@@ -76,7 +77,7 @@ function App() {
     newPurchases.push({
       name: name,
       net: cost,
-      tax: cost*tax/100
+      tax: cost*taxrate/100,
     });
     setPurchases(newPurchases);
   }
@@ -114,15 +115,15 @@ function App() {
                 </div>
               </div>
               <div className="FormUnit">
-                <div className="label">Tax * (%)</div>
+                <div className="label">Tax rate* (%)</div>
                 <div>
                   <input
                     type="text"
-                    name="tax"
-                    value={tax}
+                    name="taxrate"
+                    value={taxrate}
                     placeholder="Enter tax rate"
                     autoComplete="off"
-                    onChange={ (e) => handleTaxChange(e) }
+                    onChange={ (e) => handleTaxrateChange(e) }
                   />
                 </div>
               </div>
@@ -130,20 +131,16 @@ function App() {
                 Gross: $ {gross.toFixed(2)}
               </div>
               <div className="Buttons">
-                <div className="FormButton">
-                  <input type="button" value="Add" onClick={(e) => handleSubmit(e, 'Add')} />
-                </div>
-                <div className="FormButton">
-                  <input type="button" value="Reset" onClick={(e) => handleSubmit(e, 'Reset')} />
-                </div>
+                <input type="button" value="Add" onClick={(e) => handleSubmit(e, 'Add')} />
+                <input type="button" value="Reset" onClick={(e) => handleSubmit(e, 'Reset')} />
               </div>
             </form>
           </div>
           <div className="Overview">
             <div className="Metrics">
-              <div>Overview</div>  
-              <div>Total Sum</div> 
-              <div>Average</div>   
+              <div>Overview</div>
+              <div>Total Gross</div> 
+              <div>Average</div>
               <div>Total Items</div>
             </div>
             <div className="OverviewMag">

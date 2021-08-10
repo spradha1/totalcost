@@ -17,7 +17,7 @@
 // calculate overview values: sum, average & total number of items
 export function getOverview(purchases) {
   if (purchases.length) {
-    const costs = purchases.map(purchase => parseFloat(purchase.net));
+    const costs = purchases.map(purchase => parseFloat(purchase.net) + parseFloat(purchase.tax));
     const sumFunc = (accumulator, currentValue) => accumulator + currentValue;
     const sum = costs.reduce(sumFunc);
     const num = costs.length;

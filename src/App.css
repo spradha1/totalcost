@@ -53,14 +53,12 @@
 .Gross {
   display: inline-block;
   width: 200px;
+  height: 32px;
 }
 .Buttons {
   display: inline-block;
-}
-.Buttons div {
-  display: inline;
+  height: 32px;
   width: calc(100% - 200px);
-  margin-left: 25px;
 }
 .Buttons input {
   outline: none;
@@ -68,10 +66,13 @@
   color: white;
   border-radius: 5px;
   border: none;
+  height: 32px;
+  margin-left: 25px;
   padding: 8px 15px;
 }
 .Buttons input:hover {
   cursor: pointer;
+  background: linear-gradient(rgb(220, 220, 220), rgb(175, 175, 175));
 }
 
 
@@ -83,10 +84,10 @@
   grid-template-columns: 2fr 3fr;
   margin-left: 35px;
   background-color: rgb(235, 235, 235);
-  padding-left: 25px;
+  padding: 0 25px;
 }
 .OverviewMag {
-  padding-right: 150px;
+  padding-right: 125px;
 }
 .Metrics > div, .OverviewMag > div {
   padding: 20px 10px;
@@ -121,4 +122,51 @@
 }
 .Purchase > div:nth-child(1), .PurchaseHeaders > div:nth-child(1) {
   text-align: left;
+}
+
+
+
+/* Responsive */
+
+@media screen and (max-width: 950px) {
+  
+  .Gross {
+    width: 100px;
+  }
+  .Buttons {
+    width: calc(100% - 100px);
+  }
+  .Buttons input {
+    margin-left: 10px;
+  }
+
+  .Overview {
+    grid-template-columns: 1fr 1fr;
+    padding: 0 15px;
+  }
+  .OverviewMag {
+    padding-right: 0;
+  }
+}
+
+@media screen and (max-width: 680px) {
+
+  .TopSection {
+    flex-direction: column;
+  }
+
+  .AddItem, .Overview {
+    width: calc(100% - 20px);
+    margin: 0 10px;
+    padding: 0 10px;
+  }
+  .AddItem {
+    border: none;
+    margin-bottom: 25px;
+  }
+
+  .Purchase > div, .PurchaseHeaders > div {
+    padding: 10px 5px;
+    font-size: 0.9em;
+  }
 }
